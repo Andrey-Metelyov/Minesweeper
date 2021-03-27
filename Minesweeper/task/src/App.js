@@ -38,28 +38,6 @@ class ControlPanel extends React.Component {
     }
 }
 
-// function Cell(props) {
-//     return (<span className="cell">props.cell.mark</span>);
-// }
-
-// class Row extends React.Component {
-//     render() {
-//         return (
-//             <div>
-//                 <Cell/>
-//                 <Cell/>
-//                 <Cell/>
-//                 <Cell/>
-//                 <Cell/>
-//                 <Cell/>
-//                 <Cell/>
-//                 <Cell/>
-//                 <Cell/>
-//             </div>
-//         );
-//     }
-// }
-
 class Cell extends React.Component {
     render() {
         const mark = this.props.mark;
@@ -84,17 +62,6 @@ class Field extends React.Component {
             </div>
         );
     }
-
-    // renderField() {
-    //     console.log("renderField")
-    //     return this.state.cells.map(cell => {
-    //         return (
-    //             <Cell
-    //                 cell={cell}
-    //             />
-    //         )
-    //     })
-    // }
 }
 
 class Minesweeper extends React.Component {
