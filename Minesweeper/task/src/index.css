@@ -11,3 +11,32 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.minesweeper {
+  margin: 0 auto 0 auto;
+  width: 220px;
+}
+
+.control-panel {
+  margin: 0 auto 0 auto;
+  width: 100%;
+  border: black 1px solid;
+  border-radius: 10px;
+}
+
+.field {
+  border: black 1px solid;
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto 0 auto;
+  padding: 20px;
+  width: 80%;
+}
+
+.cell {
+  /*flex: 0 0 12.5%;*/
+  border: black 1px solid;
+  height: 20px;
+  width: 20px;
+}

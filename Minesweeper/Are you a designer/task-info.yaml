@@ -289,11 +289,8 @@ files:
     </svg>
   learner_created: true
 feedback_link: https://hyperskill.org/projects/108/stages/587/implement#comment
-status: Failed
+status: Solved
 feedback:
-  message: |-
-    Wrong answer in test #1
-
-    The field should contain 72 square cells with no inner elements inside.
-  time: Tue, 23 Mar 2021 12:23:15 UTC
+  message: Congratulations!
+  time: Sat, 27 Mar 2021 10:53:07 UTC
 record: -1

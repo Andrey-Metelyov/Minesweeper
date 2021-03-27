@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './bomb.svg';
+// import logo from './bomb.svg';
 import './App.css';
 
 class FlagsCounter extends React.Component {
@@ -29,7 +29,7 @@ class Timer extends React.Component {
 class ControlPanel extends React.Component {
     render() {
         return (
-            <div>
+            <div className="control-panel">
                 <FlagsCounter/>
                 <Reset/>
                 <Timer/>
@@ -38,55 +38,82 @@ class ControlPanel extends React.Component {
     }
 }
 
+// function Cell(props) {
+//     return (<span className="cell">props.cell.mark</span>);
+// }
+
+// class Row extends React.Component {
+//     render() {
+//         return (
+//             <div>
+//                 <Cell/>
+//                 <Cell/>
+//                 <Cell/>
+//                 <Cell/>
+//                 <Cell/>
+//                 <Cell/>
+//                 <Cell/>
+//                 <Cell/>
+//                 <Cell/>
+//             </div>
+//         );
+//     }
+// }
+
 class Cell extends React.Component {
     render() {
-        return (<span>O</span>);
-    }
-}
+        const mark = this.props.mark;
+        return (<div className="cell">
 
-class Row extends React.Component {
-    render() {
-        return (
-            <div>
-                <Cell/>
-                <Cell/>
-                <Cell/>
-                <Cell/>
-                <Cell/>
-                <Cell/>
-                <Cell/>
-                <Cell/>
-                <Cell/>
-            </div>
-        );
+        </div>);
     }
 }
 
 class Field extends React.Component {
     render() {
+        const cells = [];
+        for (let i = 0; i < 72; i++) {
+            cells.push(
+                <Cell/>
+            );
+        }
+        console.log(cells);
         return (
-            <div>
-                <Row/>
-                <Row/>
-                <Row/>
-                <Row/>
+            <div className="field">
+                {cells}
+            </div>
+        );
+    }
 
-                <Row/>
-                <Row/>
-                <Row/>
-                <Row/>
+    // renderField() {
+    //     console.log("renderField")
+    //     return this.state.cells.map(cell => {
+    //         return (
+    //             <Cell
+    //                 cell={cell}
+    //             />
+    //         )
+    //     })
+    // }
+}
+
+class Minesweeper extends React.Component {
+    render() {
+        return (
+            <div className="minesweeper">
+                <ControlPanel/>
+                <Field/>
             </div>
         );
     }
 }
 
 function App() {
-    return (
-        <div className="App">
-            <ControlPanel/>
-            <Field/>
-        </div>
-    );
+        return (
+            <div className="App">
+                <Minesweeper/>
+            </div>
+        );
 }
 
 export default App;
