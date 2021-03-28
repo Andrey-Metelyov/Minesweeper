@@ -39,26 +39,59 @@ class ControlPanel extends React.Component {
 }
 
 class Cell extends React.Component {
-    render() {
-        const mark = this.props.mark;
-        return (<div className="cell">
+    constructor(props) {
+        super(props);
+        // console.log(props);
+    }
 
-        </div>);
+    state = {
+        clicked: false
+    }
+
+    onClick() {
+        this.setState( { clicked: !this.state.clicked } );
+        console.log("clicked set to: " + this.state.clicked);
+    }
+
+    render() {
+        return (
+            <div className={`cell ${this.state.clicked ? " marked" : ""}`} onClick={this.onClick.bind(this)}>
+            </div>
+        );
+    }
+}
+
+class Row extends React.Component {
+    constructor(props) {
+        super(props);
+        console.log(props);
+    }
+
+    render() {
+        const cells = [];
+        for (let i = 0; i < 8; i++) {
+            cells.push(
+                <Cell key={this.props.id + "_cell_" + i}/>
+            );
+        }
+        return <div className="row">
+            {cells}
+        </div>;
     }
 }
 
 class Field extends React.Component {
     render() {
-        const cells = [];
-        for (let i = 0; i < 72; i++) {
-            cells.push(
-                <Cell/>
+        const rows = [];
+        for (let i = 0; i < 9; i++) {
+            rows.push(
+                <Row key={"row_"+i} />
             );
         }
-        console.log(cells);
+        // console.log(rows);
         return (
             <div className="field">
-                {cells}
+                {rows}
             </div>
         );
     }
@@ -68,8 +101,8 @@ class Minesweeper extends React.Component {
     render() {
         return (
             <div className="minesweeper">
-                <ControlPanel/>
-                <Field/>
+                <ControlPanel />
+                <Field />
             </div>
         );
     }
@@ -78,7 +111,7 @@ class Minesweeper extends React.Component {
 function App() {
         return (
             <div className="App">
-                <Minesweeper/>
+                <Minesweeper />
             </div>
         );
 }
